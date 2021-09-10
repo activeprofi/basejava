@@ -22,15 +22,13 @@ public class ArrayStorage {
     }
 
     Resume get(String uuid) {
-        Resume foundResume = null;
-
         for (int i = 0; i < size; i++) {
             if (storage[i].uuid.equals(uuid)) {
-                foundResume = storage[i];
+                return storage[i];
             }
         }
 
-        return foundResume;
+        return null;
     }
 
     void delete(String uuid) {
@@ -38,6 +36,8 @@ public class ArrayStorage {
             if (storage[i].uuid.equals(uuid)) {
                 System.arraycopy(storage, i + 1, storage, i, size - i);
                 size--;
+
+                return;
             }
         }
     }
