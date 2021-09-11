@@ -5,10 +5,10 @@ import java.util.Arrays;
  */
 public class ArrayStorage {
     private final Resume[] storage = new Resume[10000];
-    private int size = 0;
+    private int size;
 
     void clear() {
-        Arrays.fill(storage, 0, size == 0 ? 0 : size, null);
+        Arrays.fill(storage, 0, size, null);
         size = 0;
     }
 
@@ -36,7 +36,6 @@ public class ArrayStorage {
             if (storage[i].uuid.equals(uuid)) {
                 System.arraycopy(storage, i + 1, storage, i, size - i);
                 size--;
-
                 return;
             }
         }
